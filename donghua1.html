@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>donghuan1</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #000;
+}
+.da{
+	width: 1000px;
+	height:600px;
+	color: #fff;
+	text-align: center;
+	font-size: 36px;
+	position: relative;
+	border:1px solid #98eaaa;
+	margin: 20px auto;
+	-webkit-perspective:2000px;
+	perspective:2000px;
+}
+.box{
+	position: relative;
+	left: 425px;
+	top:180px;
+	color: #fff;
+	text-align: center;
+	font-size: 36px;
+	/*width: 100px;
+	height: 100px;*/
+	background: red;
+	width: 150px;
+	height: 120px;
+	-webkit-transform-style:preserve-3d;
+	transform-style:preserve-3d;
+	/*-webkit-perspective:1500px;
+	perspective:1500px;*/
+	/*transform: rotateX(-90deg) rotateY(0deg);*/
+	animation: dome 8s linear infinite;
+}
+@keyframes dome{
+	0%{
+		transform: rotateX(-10deg) rotateY(0deg);
+	}
+	100%{
+		transform: rotateX(-10deg) rotateY(360deg);
+	}
+}
+.box div{
+	width: 150px;
+	height: 120px;
+	border:1px solid #3e123e;
+	border-radius: 10px;
+	line-height: 120px;
+	position: absolute;
+	/*left: 425px;
+	top: 180px;*/
+}
+/*.box div.box1{
+	background: gray;
+	-webkit-transform: rotateX(0deg) translateZ(200px);
+	transform: rotateY(0deg) translateZ(200px);
+}
+.box div.box2{
+	background: gray;
+	-webkit-transform: rotateX(45deg) translateZ(200px);
+	transform: rotateY(45deg) translateZ(200px);
+}
+.box div.box3{
+	background: gray;
+	-webkit-transform: rotateX(90deg) translateZ(200px);
+	transform: rotateY(90deg) translateZ(200px);
+}
+.box div.box4{
+	background: gray;
+	-webkit-transform: rotateX(135deg) translateZ(200px);
+	transform: rotateY(135deg) translateZ(200px);
+}
+.box div.box5{
+	background: gray;
+	-webkit-transform: rotateX(180deg) translateZ(200px);
+	transform: rotateY(180deg) translateZ(200px);
+}
+.box div.box8{
+	background: gray;
+	-webkit-transform: rotateX(-45deg) translateZ(200px);
+	transform: rotateY(-45deg) translateZ(200px);
+}
+.box div.box7{
+	background: gray;
+	-webkit-transform: rotateX(-90deg) translateZ(200px);
+	transform: rotateY(-90deg) translateZ(200px);
+}
+.box div.box6{
+	background: gray;
+	-webkit-transform: rotateX(-135deg) translateZ(200px);
+	transform: rotateY(-135deg) translateZ(200px);
+}*/
+
+</style>
+</head>
+<body>
+	<div class="da">
+		<div class="box" id="box">
+			<div class="box1">1</div>
+			<div class="box2">2</div>
+			<div class="box3">3</div>
+			<div class="box4">4</div>
+			<div class="box5">5</div>
+			<div class="box6">6</div>
+			<div class="box7">7</div>
+			<div class="box8">8</div>
+		</div>
+	</div>
+	
+	<script>
+		var box = document.getElementById('box');
+		var boxList = box.getElementsByTagName('div');
+		var du = Math.floor(360/boxList.length);
+		var num =Math.ceil(box.offsetWidth/(2*Math.tan(du/360*Math.PI))) + 10;
+		
+		console.log(num)
+		for(i = 0;i<boxList.length;i++){
+			// num++;
+			// boxList[i].index = i;
+			// console.log(i)
+			var g= num;
+				// boxList[i].style.cssText += 'background: gray;transform: rotateY('+i*du+') translateZ(200px);';
+				boxList[i].style.background = 'gray';
+				boxList[i].style.transform = 'rotateY('+i*du+'deg) translateZ('+g+'px)';
+
+			// console.log(boxList[j])
+			
+			
+		}
+	</script>
+</body>
+</html>
